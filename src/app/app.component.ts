@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<app-movies-list></app-movies-list>'
 })
 export class AppComponent {
   title = 'Mini-Netflix';
