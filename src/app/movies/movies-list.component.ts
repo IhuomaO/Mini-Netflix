@@ -3,26 +3,70 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-movies-list' ,
   template: `
-  <div>
-  <h1>Upcoming Movie Premiers</h1>
+  <div class='row'>
+      <div *ngFor="let movie of movies" class='col-md-4'>
+        <app-movies-thumbnail  [movies]="movie"></app-movies-thumbnail>
+      </div>
   </div>
-  <hr>
 
-  <div class="card" style="width: 18rem;">
-  <img src="/assets/images/star-wars.png" class="card-img-top" alt="advert">
-  <div class="card-body">
-    <h2 class="card-title"> {{movie.name}} </h2>
-    <h3 class="card-text"> {{movie.productionYear}} </h3>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
   `
 })
 export class MoviesListComponent {
-   movie = {
+   movies = [
+     {
      id: 1,
-     name: 'Star Wars',
+     title: 'Star Wars',
      imageUrl: '/assets/images/star-wars.png' ,
      productionYear: 2018
-   };
+   },
+   {
+    id: 2,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 3,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 4,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 5,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 6,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 7,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 8,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+  {
+    id: 9,
+    title: 'Star Wars',
+    imageUrl: '/assets/images/star-wars.png' ,
+    productionYear: 2018
+  },
+
+  ];
 }
