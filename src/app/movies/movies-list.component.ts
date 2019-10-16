@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { Imovie } from './movies';
 
 @Component({
   selector: 'app-movies-list' ,
   template: `
   <div class='row'>
-      <div *ngFor="let movie of movies" class='col-md-4'>
+      <div class='container'>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="search" placeholder="Search" aria-label="Search" [(ngModel)]='listFilter'>
+        </form>
+      </div>
+      <div *ngFor="let movie of filteredMovies" class='col-md-4'>
         <app-movies-thumbnail  [movies]="movie"></app-movies-thumbnail>
       </div>
   </div>
@@ -12,7 +18,18 @@ import { Component } from '@angular/core';
   `
 })
 export class MoviesListComponent {
-   movies = [
+   // tslint:disable-next-line: variable-name
+   _listFilter: string;
+   get listFilter(): string {
+     return this._listFilter;
+   }
+   set listFilter(value: string) {
+     this._listFilter = value;
+     this.filteredMovies = this.listFilter ? this.performFilter(this.listFilter) : this.movies;
+   }
+
+   filteredMovies: Imovie[];
+   movies: Imovie[] = [
      {
      id: 1,
      title: 'A Star is born',
@@ -105,4 +122,15 @@ export class MoviesListComponent {
   },
 
   ];
+
+  constructor() {
+      this.filteredMovies = this.movies;
+      this.listFilter = '';
+  }
+
+  performFilter(filterBy: string): Imovie[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.movies.filter((movie: Imovie) =>
+           movie.title.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
 }
