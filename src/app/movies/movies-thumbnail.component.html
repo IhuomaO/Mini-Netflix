@@ -1,0 +1,31 @@
+<div class="card mb-3" style="max-width:350px; max-height: 200px;  min-height: 200px;">
+  <div class="row no-gutters">
+    <div class="col-md-4 justify-content-center">
+      <img src= " {{movies.imageUrl}} "  class="card-img"  style="min-height: 100px;" alt="movie image">
+    </div>
+    <div class="col-md-8">
+      <div class="well hoverwell thumbnail">
+        <h6 class=""> {{ movies.title }} </h6>
+        <p class=""> {{ movies.productionYear }} </p>
+      </div>
+      <p>
+        <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+          Additional Details
+        </button>
+      </p>
+      <div id="collapseExample" [ngbCollapse]="!isCollapsed">
+        <div class="card">
+          <div class="card-body">
+            <p><small class="text-muted"> Rated: {{ movies.rated }} </small></p>
+            <p><small class="text-muted"> Runtime: {{ movies.runtime }} mins </small></p>
+            <p><small class="text-muted"> Genre: {{ movies.genre }} </small></p>
+            <p><small class="text-muted"> Director: {{ movies.director }} </small></p>
+            <p><small class="text-muted"> Actors: {{ movies.actors }} </small></p>
+            <p><small class="text-muted"> Plot: {{ movies.plot }} </small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,10 +5,19 @@
 
 .container {
   padding-top: 10px;
+  background-color: lightblue;
+}
+
+.box {
+  margin: 50px;
 }
 
 .pointable {
    cursor: pointer;
+}
+
+.navbar {
+  background-color: rgb(0, 238, 255);
 }
 
 button {

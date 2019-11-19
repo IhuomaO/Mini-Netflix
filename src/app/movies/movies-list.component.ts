@@ -3,14 +3,16 @@ import { Imovie } from './movies';
 
 @Component({
   selector: 'app-movies-list' ,
+  styleUrls: ['./movies-list.component.css'],
   template: `
   <div class='row'>
-      <div class='container'>
+      <div class='container-fluid'>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" name="search" placeholder="Search" aria-label="Search" [(ngModel)]='listFilter'>
+            <input class="form-control mr-sm-2" name="search" placeholder="Search"
+            aria-label="Search" [(ngModel)]='listFilter'>
         </form>
       </div>
-      <div *ngFor="let movie of filteredMovies" class='col-md-4'>
+      <div class='box' *ngFor="let movie of filteredMovies" class='col-md-4'>
         <app-movies-thumbnail  [movies]="movie"></app-movies-thumbnail>
       </div>
   </div>
@@ -209,7 +211,7 @@ export class MoviesListComponent {
     director: 'Eva Mendez',
     actors: 'Meryl Streep, Jennifer Aniston, Brandon Lee',
     plot: 'The strory revolves around the growth of an amazon warrior'
-  },
+  }
 
   ];
 
